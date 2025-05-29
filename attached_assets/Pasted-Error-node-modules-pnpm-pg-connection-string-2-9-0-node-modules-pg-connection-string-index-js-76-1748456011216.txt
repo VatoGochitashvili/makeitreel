@@ -1,0 +1,31 @@
+Error: ./node_modules/.pnpm/pg-connection-string@2.9.0/node_modules/pg-connection-string/index.js:76:1
+[31m[1mModule not found[22m[39m: Can't resolve '[32mfs[39m'
+[0m [90m 74 |[39m[0m
+[0m [90m 75 |[39m   [90m// Only try to load fs if we expect to read from the disk[39m[0m
+[0m[31m[1m>[22m[39m[90m 76 |[39m   [36mconst[39m fs [33m=[39m config[33m.[39msslcert [33m||[39m config[33m.[39msslkey [33m||[39m config[33m.[39msslrootcert [33m?[39m require([32m'fs'[39m) [33m:[39m [36mnull[39m[0m
+[0m [90m    |[39m [31m[1m^[22m[39m[0m
+[0m [90m 77 |[39m[0m
+[0m [90m 78 |[39m   [36mif[39m (config[33m.[39msslcert) {[0m
+[0m [90m 79 |[39m     config[33m.[39mssl[33m.[39mcert [33m=[39m fs[33m.[39mreadFileSync(config[33m.[39msslcert)[33m.[39mtoString()[0m
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/.pnpm/pg@8.16.0/node_modules/pg/lib/connection-parameters.js
+./node_modules/.pnpm/pg@8.16.0/node_modules/pg/lib/client.js
+./node_modules/.pnpm/pg@8.16.0/node_modules/pg/lib/index.js
+./node_modules/.pnpm/pg@8.16.0/node_modules/pg/esm/index.mjs
+./lib/database.ts
+./components/auth-provider.tsx
+    at BuildError (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/next@15.2.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next/dist/client/components/react-dev-overlay/ui/container/build-error.js:43:41)
+    at react-stack-bottom-frame (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23864:20)
+    at renderWithHooks (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5530:22)
+    at updateFunctionComponent (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8898:19)
+    at beginWork (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10523:18)
+    at runWithFiberInDEV (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1520:30)
+    at performUnitOfWork (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15133:22)
+    at workLoopSync (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14957:41)
+    at renderRootSync (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14937:11)
+    at performWorkOnRoot (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14420:13)
+    at performWorkOnRootViaSchedulerTask (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:16217:7)
+    at MessagePort.performWorkUntilDeadline (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/scheduler@0.26.0/node_modules/scheduler/cjs/scheduler.development.js:45:48)

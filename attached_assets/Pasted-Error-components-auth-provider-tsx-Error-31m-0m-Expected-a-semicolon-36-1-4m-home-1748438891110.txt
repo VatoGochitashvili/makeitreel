@@ -1,0 +1,38 @@
+Error: ./components/auth-provider.tsx
+Error:   [31m×[0m Expected a semicolon
+    ╭─[[36;1;4m/home/runner/workspace/components/auth-provider.tsx[0m:78:1]
+ [2m75[0m │ 
+ [2m76[0m │         setUser(mockUser)
+ [2m77[0m │         localStorage.setItem("user", JSON.stringify(mockUser))
+ [2m78[0m │       } else if (provider === "signup") {
+    · [35;1m        ────[0m
+ [2m79[0m │         // Mock signup
+ [2m80[0m │         const mockUser: User = {
+ [2m81[0m │           id: "signup-123456",
+    ╰────
+  [31m×[0m Expression expected
+    ╭─[[36;1;4m/home/runner/workspace/components/auth-provider.tsx[0m:89:1]
+ [2m86[0m │         setUser(mockUser)
+ [2m87[0m │         localStorage.setItem("user", JSON.stringify(mockUser))
+ [2m88[0m │       }
+ [2m89[0m │     } catch (error) {
+    · [35;1m    ─[0m
+ [2m90[0m │       console.error("Login failed:", error)
+ [2m91[0m │     } finally {
+ [2m92[0m │       setLoading(false)
+    ╰────
+
+Caused by:
+    Syntax Error
+    at BuildError (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/next@15.2.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/next/dist/client/components/react-dev-overlay/ui/container/build-error.js:43:41)
+    at react-stack-bottom-frame (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:23864:20)
+    at renderWithHooks (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:5530:22)
+    at updateFunctionComponent (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:8898:19)
+    at beginWork (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:10523:18)
+    at runWithFiberInDEV (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:1520:30)
+    at performUnitOfWork (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:15133:22)
+    at workLoopSync (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14957:41)
+    at renderRootSync (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14937:11)
+    at performWorkOnRoot (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:14420:13)
+    at performWorkOnRootViaSchedulerTask (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.1.0_react@19.1.0/node_modules/react-dom/cjs/react-dom-client.development.js:16217:7)
+    at MessagePort.performWorkUntilDeadline (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/scheduler@0.26.0/node_modules/scheduler/cjs/scheduler.development.js:45:48)
