@@ -1,7 +1,8 @@
-
 import { NextRequest, NextResponse } from 'next/server'
-import { verifyEmailCode, createUser, generateToken } from '@/lib/database'
+import { verifyEmailCode, createUser } from '@/lib/database'
+import { generateToken } from '@/lib/auth'
 import { cookies } from 'next/headers'
+import type { UserWithSubscription } from '@/lib/database'
 
 export async function POST(request: NextRequest) {
   try {
@@ -27,7 +28,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create the user account
-    const user = await createUser(email, password, name)
+    const user = await createUser(email, password, name) as UserWithSubscription
     const token = generateToken(user)
 
     const cookieStore = await cookies()

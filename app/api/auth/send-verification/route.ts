@@ -1,7 +1,8 @@
-
 import { NextRequest, NextResponse } from 'next/server'
 import { emailExists, generateVerificationCode, storeVerificationCode } from '@/lib/database'
-import { sendVerificationEmail } from '@/lib/email'
+import { Resend } from 'resend'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,12 +21,17 @@ export async function POST(request: NextRequest) {
     const code = generateVerificationCode()
     await storeVerificationCode(email, code)
 
-    // Send verification email
-    const emailSent = await sendVerificationEmail(email, code)
-    
-    if (!emailSent) {
-      return NextResponse.json({ error: 'Failed to send verification email' }, { status: 500 })
-    }
+    // Send verification email using Resend
+    await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: email,
+      subject: 'Verify your email',
+      html: `
+        <h1>Email Verification</h1>
+        <p>Your verification code is: <strong>${code}</strong></p>
+        <p>This code will expire in 10 minutes.</p>
+      `
+    })
 
     return NextResponse.json({ success: true, message: 'Verification code sent to your email' })
   } catch (error) {
