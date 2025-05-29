@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { emailExists, generateVerificationCode, storeVerificationCode } from '@/lib/database'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend('re_Hqts7eq6_Fx2Jmcbscs7J3MvAAZuBKG1c')
 
 export async function POST(request: NextRequest) {
   try {
